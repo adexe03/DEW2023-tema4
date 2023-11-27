@@ -46,7 +46,7 @@
 
     function sort(event) {
       const lis = [...document.querySelectorAll('li')];
-      // Una forma de hacerlo
+      // UNA FORMA DE HACERLO
       // lis.sort((li1, li2) => li1.innerText > li2.innerText ? 1 : -1);
       // while (list.firstChild) {
       //   list.removeChild(list.firstChild);
@@ -54,6 +54,7 @@
       // lis.forEach(li => {
       //   list.appendChild(li);
       // });
+      // OTRA FORMA DE HACERLO
       lis.sort((li1, li2) => li1.textContent.localeCompare(li2.textContent));
       lis.forEach(li => list.append(li));
     }
