@@ -34,11 +34,19 @@
       console.log('pulsado');
       xO = event.offsetX;
       yO = event.offsetY;
+      if (event.target !== container) {
+        xO += parseInt(event.target.style.left);
+        yO += parseInt(event.target.style.top);
+      }
     });
     container.addEventListener('mouseup', (event) => {
       console.log('soltado');
       let xF = event.offsetX;
       let yF = event.offsetY;
+      if (event.target !== container) {
+        xF += parseInt(event.target.style.left);
+        yF += parseInt(event.target.style.top);
+      }
 
       if (xO > xF) {
         [xO, xF] = [xF, xO];
@@ -55,6 +63,8 @@
       box.style.height = (yF - yO) + 'px';
       // box.style.backgroundColor = '#' + (Math.floor(Math.random() * (256 ** 3))).toString(16);
       box.style.backgroundColor = `rgb(${random256()}, ${random256()}, ${random256()})`;
+      box.draggable = false;
+
       function random256() {
         return Math.floor(Math.random() * 256);
       }
