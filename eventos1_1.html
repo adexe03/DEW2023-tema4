@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .marked {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <h1>Listado</h1>
+  <ul>
+    <li>elemento 1</li>
+    <li>elemento 2</li>
+    <li>elemento 3</li>
+    <li>elemento 4</li>
+    <li>elemento 5</li>
+  </ul>
+  <button>Añadir marcado</button>
+  <script>
+    let button = document.querySelector('button');
+
+    // function mark(li) {
+    //     li.classList.toggle('marked');
+    // }
+
+    function mark() {
+        this.classList.toggle('marked');
+    }
+
+    // No funciona porque this es el window.
+    // const mark = () => {
+    //   console.log(this);
+    //   this.classList.add('marked')
+    // }; 
+
+    button.addEventListener('click', ()=>{
+      let lis = document.querySelectorAll('li');
+      // lis.forEach(li => li.addEventListener('click', ()=>mark(li)));
+      lis.forEach(li => li.addEventListener('click', mark));
+    });
+  </script>
+</body>
+</html>

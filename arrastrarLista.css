@@ -1,0 +1,46 @@
+.parent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 40px 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 0px;
+  grid-auto-flow: column;
+}
+
+h2 {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  margin: 0px;
+}
+
+.box {
+  padding: 10px;
+}
+
+#todo {
+  background-color: aqua;
+}
+
+#doing {
+  background-color: yellow;
+}
+
+#done {
+  background-color: lightgreen;
+}
+
+#cancel {
+  background-color: lightcoral;
+}
+
+.task {
+  border: 1px solid blue;
+  background-color: lightgray;
+  padding: 3px 5px;
+  margin: 5px 0;
+}
+
+.selected {
+  background-color: white;
+}

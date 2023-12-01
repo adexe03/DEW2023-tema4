@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container {
+      background-color: aquamarine;
+      height: 600px;
+      width: 800px;
+      position: relative;
+    }
+
+    .box {
+      background-color: rgb(255,128,9);
+      /* width: 100px;
+      height: 50px;
+      top: 100px;
+      left: 200px; */
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+    <h1>Pulsa y arrastra para crear un recuadro</h1>
+    <div id="container">
+    </div>
+
+    <script>
+      const container = document.getElementById('container');
+      let xO, yO;
+
+      container.addEventListener('mousedown', (event)=>{
+        console.log('pulsado');
+        xO = event.offsetX;
+        yO = event.offsetY;
+      });
+
+      container.addEventListener('mouseup', (event)=>{
+        console.log('soltado');
+        let xF = event.offsetX;
+        let yF = event.offsetY;
+
+        if (xO>xF){
+          [xO,xF] = [xF,xO];
+        }
+        if (yO>yF){
+          [yO,yF] = [yF,yO];
+        }
+        const box = document.createElement('div');
+        box.classList.add('box');
+        container.append(box);
+        box.style.left = xO + "px";
+        box.style.top = yO + "px";
+        box.style.width = (xF - xO) + "px";
+        box.style.height = (yF - yO) + "px";
+        // let color = 'white';
+        // if (event.ctrlKey) {
+        //   color = 'blue';
+        //   if (event.altKey) {
+        //     color = 'yellow';
+        //     if (event.shiftKey) {
+        //       color = 'black';
+        //     } 
+        //   } else {
+        //     if (event.shiftKey) {
+        //       color = 'purple';
+        //     } 
+        //   }
+        // } else {
+        //   if (event.altKey) {
+        //     color = 'green';
+        //     if (event.shiftKey) {
+        //       color = 'orange';
+        //     }
+        //   } else {
+        //     if (event.shiftKey) {
+        //       color = 'red';
+        //     }
+        //   }
+        // }
+        let red = event.shiftKey ? 255 : 0;
+        let green = event.altKey ? 255 : 0;
+        let blue = event.ctrlKey ? 255 : 0;
+        box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+      })
+
+      function random256() {
+        return Math.floor(Math.random()*256);
+      }
+
+    </script>
+</body>
+</html>

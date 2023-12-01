@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .marked {
+      background-color: yellow;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .underline {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Listado</h1>
+  <ul>
+    <li>elemento 1</li>
+    <li>elemento 2</li>
+    <li>elemento 3</li>
+    <li>elemento 4</li>
+    <li>elemento 5</li>
+  </ul>
+  <p>
+    <input type="checkbox" id="mark"><label for="mark">Añadir funcionalidad de marcado</label>
+  </p>
+  <p>
+    <input type="checkbox" id="bold"><label for="bold">Añadir funcionalidad de negrita</label>
+  </p>
+  <p>
+    <input type="checkbox" id="underline"><label for="underline">Añadir funcionalidad de underline</label>
+  </p>
+  <p>
+    <input type="checkbox" id="logger"><label for="logger">Añadir funcionalidad de logger</label>
+  </p>
+
+  <script>
+    function changeMark() {
+        this.classList.toggle('marked');
+    }
+
+    function changeBold() {
+      this.classList.toggle('bold');
+    }
+
+    function changeUnderline() {
+      this.classList.toggle('underline');
+    }
+
+    function showConsole() {
+      console.log(this.textContent);
+    }
+
+    const options = ['mark', 'bold', 'underline', 'logger'];
+    const functions = [changeMark, changeBold, changeUnderline, showConsole];
+
+    function toggleEvent(optionName, functionName) {
+      let option = document.getElementById(optionName);
+      option.addEventListener('change', ()=>{
+        let lis = document.querySelectorAll('li');
+        if (option.checked) {
+          lis.forEach(li => li.addEventListener('click', functionName));
+        } else {
+          lis.forEach(li => li.removeEventListener('click', functionName));
+        }
+      });
+    }
+
+    for(let i=0; i<options.length; i++) {
+      toggleEvent(options[i],functions[i]);
+    }
+
+
+  </script>
+</body>
+</html>

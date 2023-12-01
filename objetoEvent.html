@@ -1,39 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    div {
+      padding: 20px;
+      background-color: purple;
+    }
+
+    p {
+      padding: 10px;
+      background-color: aquamarine;
+    }
+  </style>
 </head>
-<style>
-  div {
-    padding: 20px;
-    background-color: purple;
-  }
-
-  p {
-    padding: 10px;
-    background-color: aquamarine;
-  }
-</style>
-
 <body>
   <h1>Objeto Event</h1>
   <p>División con evento onclick</p>
   <div>
     <p>Hola <span>Mundo</span></p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fermentum posuere ex vitae faucibus. Duis
-      hendrerit turpis quis libero vulputate, sed commodo libero congue. Etiam ut egestas lacus.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quidem commodi voluptatem voluptatum? At voluptatum nisi corrupti numquam, aliquam quasi repellat quaerat, modi sequi fuga, incidunt doloremque non consequatur deleniti.</p>
   </div>
   <script>
     let div = document.querySelector('div');
-    div.addEventListener('click', function (event) {
-      console.log('click realizado en', this);
+    div.addEventListener('click', (event) => {
+      console.log("click realizado en ",event.target);
       console.log(event);
-      event.target.remove();
+      //event.target.remove();
     });
   </script>
 </body>
-
 </html>

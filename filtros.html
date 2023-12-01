@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +10,6 @@
     }
   </style>
 </head>
-
 <body>
   <h1>Filtros</h1>
   <p>
@@ -23,13 +21,13 @@
   <script>
     const fruits = ['pera', 'manzana', 'uva', 'mandarina', 'platano', 'melocotón', 'melón'];
     const list = document.getElementById('list');
-
+    
     function init() {
       fruits.forEach(fruit => {
         const li = document.createElement('li');
         li.textContent = fruit;
         list.append(li);
-      });
+      })
     }
 
     function filter(event) {
@@ -46,16 +44,7 @@
 
     function sort(event) {
       const lis = [...document.querySelectorAll('li')];
-      // UNA FORMA DE HACERLO
-      // lis.sort((li1, li2) => li1.innerText > li2.innerText ? 1 : -1);
-      // while (list.firstChild) {
-      //   list.removeChild(list.firstChild);
-      // };
-      // lis.forEach(li => {
-      //   list.appendChild(li);
-      // });
-      // OTRA FORMA DE HACERLO
-      lis.sort((li1, li2) => li1.textContent.localeCompare(li2.textContent));
+      lis.sort((li1,li2) => li1.textContent.localeCompare(li2.textContent));
       lis.forEach(li => list.append(li));
     }
 
@@ -64,8 +53,8 @@
 
     const buttonOrder = document.getElementById('button-order');
     buttonOrder.addEventListener('click', sort);
+
     init();
   </script>
 </body>
-
 </html>

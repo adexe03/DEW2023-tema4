@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      background-color: aquamarine;
+      height: 500px;
+      width: 400px;
+    }
+  </style>
+</head>
+<body>
+    <h1>Pasa el ratón por la división</h1>
+    <p>Screen X: <span id="screenX"></span></p>
+    <p>Screen Y: <span id="screenY"></span></p>
+    <p>Page X: <span id="pageX"></span></p>
+    <p>Page Y: <span id="pageY"></span></p>
+    <p>Client X: <span id="clientX"></span></p>
+    <p>Client Y: <span id="clientY"></span></p>
+    <p>Offset X: <span id="offsetX"></span></p>
+    <p>Offset Y: <span id="offsetY"></span></p>
+    <div></div>
+
+    <script>
+      const div = document.querySelector('div');
+      const screenX = document.getElementById('screenX');
+      const screenY = document.getElementById('screenY');
+      const pageX = document.getElementById('pageX');
+      const pageY = document.getElementById('pageY');
+      const clientX = document.getElementById('clientX');
+      const clientY = document.getElementById('clientY');
+      const offsetX = document.getElementById('offsetX');
+      const offsetY = document.getElementById('offsetY');
+
+      div.addEventListener('mousemove', (event) => {
+        //console.log(event);
+        screenX.textContent = event.screenX;
+        screenY.textContent = event.screenY;
+        pageX.textContent = event.pageX;
+        pageY.textContent = event.pageY;
+        clientX.textContent = event.clientX;
+        clientY.textContent = event.clientY;
+        offsetX.textContent = event.offsetX;
+        offsetY.textContent = event.offsetY;  
+
+      });
+    </script>
+</body>
+</html>

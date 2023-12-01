@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .marked {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <h1>Listado</h1>
+  <ul>
+    <li>elemento 1</li>
+    <li>elemento 2</li>
+    <li>elemento 3</li>
+    <li>elemento 4</li>
+    <li>elemento 5</li>
+  </ul>
+  <input type="checkbox" id="mark"><label for="mark">Añadir funcionalidad de marcado</label>
+  <script>
+    let input = document.querySelector('input');
+
+    function changeMark() {
+        this.classList.toggle('marked');
+    }
+
+    input.addEventListener('change', ()=>{
+      let lis = document.querySelectorAll('li');
+      if (input.checked) {
+        lis.forEach(li => li.addEventListener('click', changeMark));
+      } else {
+        lis.forEach(li => li.removeEventListener('click', changeMark));
+      }
+    });
+  </script>
+</body>
+</html>

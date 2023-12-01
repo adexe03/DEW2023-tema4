@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-
 <body>
   <h1>Evitando comportamiento por defecto</h1>
   <p>
-    <a href="https://www.google.com" id="googleLink">Ir a google</a>
+    <a href="https://www.google.com" id="googleLink">Ir a google</a>    
   </p>
   <p>
     <a href="https://ieslasgalletas.org">Ir a las Galletas</a>
@@ -24,7 +22,7 @@
     googleLink.addEventListener('click', (event) => {
       let link = event.target;
       console.log(link);
-      link.href = 'https://ieslasgalletas.org';
+      link.href ="https://ieslasgalletas.org"; 
       console.log(link.href);
       event.preventDefault();
     });
@@ -32,13 +30,12 @@
     const submit = document.getElementById('enviar');
     const name = document.getElementsByName('nombre')[0];
     submit.addEventListener('click', (event) => {
-      console.log('hago las comprobaciones');
-      if (name.value.length < 5) {
+      console.log("hago las comprobaciones");
+      if (name.value.length<5) {
         event.preventDefault();
         console.log('pon un texto más largo');
       }
     });
   </script>
 </body>
-
 </html>

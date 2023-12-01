@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-
 <body>
   <h1>Listado</h1>
   <ul>
@@ -14,7 +12,7 @@
     <li>elemento2</li>
     <li>elemento3</li>
     <li>elemento4</li>
-    <li>elemento5 <span>algo dentro de span</span> algo fuera</li>
+    <li>elemento5 <span>algo dentro de span</span> algo fuera.</li>
     <li>elemento6</li>
     <li>elemento7</li>
     <li>elemento8</li>
@@ -23,12 +21,13 @@
   </ul>
   <script>
     let elementos = document.querySelectorAll('li');
-    elementos.forEach(e => addEventListener('click', (e) => remove(e)));
+    elementos.forEach(li => addEventListener('click', (e)=>remove(e)));
 
     function remove(event) {
+      console.log(event);
       event.currentTarget.remove();
     }
+
   </script>
 </body>
-
 </html>

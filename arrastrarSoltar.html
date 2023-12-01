@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="arratrarSoltar.css">
+  <link rel="stylesheet" href="arrastrarSoltar.css">
   <script src="arrastrarSoltar.js"></script>
 </head>
 
@@ -13,12 +13,15 @@
   <h1>Arrastrar y soltar</h1>
   <div class="parent">
     <div class="box" id="box1">
-      <div class="element" draggable="true" ondragstart="dragStart()">Arrastrame y suelta</div>
+      <div class="element" draggable="true" ondragstart="dragStart(event)" id="draggable-1">
+        Arrastrame y suelta
+      </div>
+      <div class="element" draggable="true" ondragstart="dragStart(event)" id="draggable-2">
+        Arrastrame y suelta 2
+      </div>
+      <div class="box" id="box2" ondragover="onDragOver(event)" ondrop="onDrop(event)">
+      </div>
     </div>
-    <div class="box" id="box2">
-
-    </div>
-  </div>
 </body>
 
 </html>

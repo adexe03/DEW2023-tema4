@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion</title>
+  <style>
+    .hide { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Accordion</h1>
+  <p>Ejercicio del acordeón</p>
+  <div data-accordion>
+    <h1>Título 1</h1>
+    <p>algo 1</p>
+    <h1>Título 2</h1>
+    <p>algo 2</p>
+    <h1>Título 3</h1>
+    <p>algo 3</p>
+    <h1>Título 4</h1>
+    <p>algo 4</p>
+    <h1>Título 5</h1>
+    <p>algo 5</p>
+  </div>
+  <div data-accordion>
+    <h1>Título 1b</h1>
+    <p>algo 1</p>
+    <h1>Título 2b</h1>
+    <p>algo 2</p>
+    <h1>Título 3b</h1>
+    <p>algo 3</p>
+    <h1>Título 4b</h1>
+    <p>algo 4</p>
+    <h1>Título 5b</h1>
+    <p>algo 5</p>
+  </div>
+  <script>
+    function hideAll(accordion) {
+      const paragraphs = accordion.querySelectorAll('p');
+      paragraphs.forEach(p => p.classList.add('hide'));
+    }
+
+    function deploy(event) {
+      const header = event.target;
+      const paragraph = header.nextElementSibling;
+      const accordion = header.parentElement;
+      hideAll(accordion);
+      paragraph.classList.remove('hide');
+    }
+
+    function makeAccordion(accordion) {
+      const headers = accordion.querySelectorAll('h1');
+      hideAll(accordion);
+      headers.forEach(h => h.addEventListener('click', deploy));
+    }
+
+    const accordions = document.querySelectorAll('[data-accordion]');
+    accordions.forEach(accordion => makeAccordion(accordion));
+
+  
+  </script>
+</body>
+</html>
